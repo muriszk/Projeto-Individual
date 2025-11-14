@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dorohedoro </title>
+
+  <script src="./js/sessao.js"></script>
+  <script src="js/funcionalidades.js"></script>
+
+  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="icon" href="./assets/imgs/ebisu-icon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="container">
+      <div id="logo">
+        <img src="assets/imgs/ebisu-icon.png" width="50px">
+        <h1 class="titulo">Dorohedoro</h1>
+      </div>
+      <ul class="navbar">
+        <li class="agora">
+          <a href="#banner">Sobre</a>
+        </li>
+        <li>
+          <a href="#volumes">Volumes</a>
+        </li>
+        <li>
+          <a href="login.html">Ranking</a>
+        </li>
+        <li>
+          <a href="cadastro.html">Autora</a>
+        </li>
+      </ul>
+      <div class="btnEntrarLogin">
+        <a href="login.html" id="log">Login</a>
+        <a href="cadastro.html" id="cad">Cadastrar-se</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- MAIN CONTENT -->
+  <div class="banner" id="banner">
+    <div class="container">
+      <div class="mainImg">
+        <img src="assets/imgs/logoMetal.png" width="500px">
+      </div>
+      <div class="mainTxt">
+        <p>Dorohedoro é uma obra japonesa que mistura caos, humor e violência de um jeito único. A busca de Caiman por
+          sua identidade mostra um mundo cheio de magia, mutações e personagens excêntricos, sempre com reviravoltas
+          criativas e imprevisíveis. Dorohedoro conquista pela maneira que independente do caos, no final tudo está
+          conectado!</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- VOLUMES -->
+  <div class="social" id="volumes">
+    <h2 id="VolumeTitle" style="color: white;">Volumes</h2>
+    <div class="container">
+      <div class="boxes">
+        <div class="boxSeta">
+          <img src="assets/imgs/SetaEsquerda.png" onclick="mudarEsquerda()"> <!--Seta esquerda-->
+        </div>
+        <div class="box" id="box1">
+          <img src="assets/imgs/vol1.webp">
+          <p id="pBox1"></p>
+        </div>
+        <div class="box" id="box2">
+          <img src="assets/imgs/vol2.jpg">
+          <p id="pBox2"></p>
+        </div>
+        <div class="box" id="box3">
+          <img src="assets/imgs/vol3.jpg">
+          <p id="pBox3"></p>
+        </div>
+        <div class="boxSeta">
+          <img src="assets/imgs/SetaDireita.png" onclick="mudarDireita()"> <!--Seta direita-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- PERSONAGENS -->
+  <div class="personagens">
+    <h2 class="PersonagemTitle" style="color: white;">Personagens</h2>
+    <div class="personagensItem">
+      <img class="imgP" src="assets/imgs/SetaEsquerda.png" onclick="mudarPersonagemEsquerda()">
+      <div id="Pbox">
+        <img src="assets/imgs/1caimanSlide.jpeg">
+      </div>
+      <img class="imgP" src="assets/imgs/SetaDireita.png" onclick="mudarPersonagemDireita()">
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- video -->
+  <div id="video">
+
+    <h2>Um pouco da obra!!</h2>
+    <video autoplay loop poster playsinline width="650">
+      <source src="assets/video/edit.mp4" type="video/mp4" />
+    </video>
+
+  </div>
+
+
+  <div class="footer">
+    <div class="container">
+      <div id="apresentacao">
+        <h2>Feito com carinho por:</h2>
+        <h3>Murilo M. Suzuki</h3>
+        <h4>Desenvolvedor</h4>
+        <img src="assets/imgs/fotoPessoalFooter.png" width="200px">
+      </div>
+      <div id="sobreMim">
+        <h2>Sobre mim:</h2>
+        <p id="sobreP">Sou estudante e amante de tecnologia, atualmente estou cursando Análise e Desenvolvimento de
+          Sistemas pela
+          Sptech e sempre procurando aprimorar minhas habilidades em tecnologia e interpessoais!Sempre procurando
+          evoluir, pois o aprendizado nunca para.</p>
+      </div>
+      <div id="Contatos">
+        <h2>Contatos</h2>
+        <span class="cardContatos">
+          <p>LinkedIn</p>
+          <a href="https://www.linkedin.com/in/murilo-suzuki-a48123262/" target="_blank"><img
+              src="assets/imgs/linkedin.png" alt=""></a>
+        </span>
+
+        <span class="cardContatos">
+          <p>GitHub</p>
+          <a href="https://github.com/muriszk" target="_blank"><img src="assets/imgs/github.png" alt=""></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
