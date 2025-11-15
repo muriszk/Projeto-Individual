@@ -1,24 +1,29 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+// var aquarioModel = require("../models/aquarioModel");
 
-function autenticar(req, res) {
+function autenticar(req, res) { // começo function autenticar
     var email = req.body.emailServer;
     // var senha = req.body.senhaServer;
 
     if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send("Digite um e-mail válido, <br> usuário de magia!");
         // } else if (senha == undefined) {
         //     res.status(400).send("Sua senha está indefinida!");
     } else {
-
         usuarioModel.autenticar(email)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
+                    res.json({
+                        email: req.body.emailServer
+                    });
+
+
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+
 
                         // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
                         //     .then((resultadoAquarios) => {
@@ -35,9 +40,9 @@ function autenticar(req, res) {
                         //         }
                         //     })
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.status(403).send("Email inválido");
                     } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                        res.status(403).send("Mais de um usuário com o mesmo logi");
                     }
                 }
             ).catch(
@@ -50,7 +55,6 @@ function autenticar(req, res) {
     }
 
 }
-
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -90,6 +94,6 @@ function cadastrar(req, res) {
 }
 // testandosss
 module.exports = {
-    // autenticar,
+    autenticar,
     cadastrar
 }

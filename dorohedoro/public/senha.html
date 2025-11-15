@@ -18,7 +18,7 @@
 
 <body>
     <!--Header-->
- 
+
     <div class="header">
         <div class="container">
             <img src="assets/imgs/ebisu-icon.png" width="50px">
@@ -27,7 +27,7 @@
     </div>
 
 
-     <div class="login"> <!-- entender melhor esta parte -->
+    <div class="login"> <!-- entender melhor esta parte -->
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
                 <span id="mensagem_erro"></span>
@@ -36,7 +36,7 @@
         <div class="containerSenha">
             <div class="card card-login">
                 <div class="formulario">
-                <h2>LOGIN</h2>
+                    <h2>LOGIN</h2>
                     <!-- <div class="campo">
                         <span>E-mail:</span> <br>
                         <input id="email_input" type="text" placeholder="Login"> 
@@ -76,10 +76,10 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
+        // var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
@@ -89,51 +89,51 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        console.log("FORM LOGIN: ", emailVar);
+        // console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        // fetch("/usuarios/autenticar", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         emailServer: emailVar,
-        //         senhaServer: senhaVar
-        //     })
-        // }).then(function (resposta) {
-        //     console.log("ESTOU NO THEN DO entrar()!")
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-        //     if (resposta.ok) {
-        //         console.log(resposta);
+            if (resposta.ok) {
+                console.log(resposta);
 
-        //         resposta.json().then(json => {
-        //             console.log(json);
-        //             console.log(JSON.stringify(json));
-        //             sessionStorage.EMAIL_USUARIO = json.email;
-        //             sessionStorage.NOME_USUARIO = json.nome;
-        //             sessionStorage.ID_USUARIO = json.id;
-        //             sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.id;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
-        //             setTimeout(function () {
-        //                 window.location = "./dashboard/cards.html";
-        //             }, 1000); // apenas para exibir o loading
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
 
-        //         });
+                });
 
-        //     } else {
+            } else {
 
-        //         console.log("Houve um erro ao tentar realizar o login!");
+                console.log("Houve um erro ao tentar realizar o login!");
 
-        //         resposta.text().then(texto => {
-        //             console.error(texto);
-        //             finalizarAguardar(texto);
-        //         });
-        //     }
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
 
-        // }).catch(function (erro) {
-        //     console.log(erro);
-        // })
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
         return false;
     }
