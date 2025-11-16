@@ -6,7 +6,12 @@ function validarSessao() {
     var b_usuario = document.getElementById("b_usuario");
 
     if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
+
+        // evita erro caso a página não tenha o elemento
+        if (b_usuario) {
+            b_usuario.innerHTML = nome;
+        }
+
     } else {
         window.location = "../login.html";
     }
@@ -33,4 +38,3 @@ function finalizarAguardar(texto) {
         divErrosLogin.innerHTML = texto;
     }
 }
-
