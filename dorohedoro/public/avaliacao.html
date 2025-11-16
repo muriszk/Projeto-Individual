@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliacao</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliacao</title>
 </head>
+
 <body>
-      <div class="header">
+
+  <!-- HEADER -->
+  <div class="header">
     <div class="container">
       <div id="logo">
         <img src="assets/imgs/ebisu-icon.png" width="50px">
@@ -32,6 +36,75 @@
       </div>
     </div>
   </div>
-  
+
+
+
+<!-- PRIMEIRA PARTE DA AVALIAÇÃO -->
+  <div id="avaliacao-">
+    <div id="Container-avaliacao">
+      <h2>Avalie o volume:</h2>
+      <select name="volumes" id="select-volume">
+        <option value="0">Selecione o Volume</option>
+        <option value="1">01</option>
+        <option value="2">02</option>
+        <option value="3">03</option>
+        <option value="4">04</option>
+        <option value="5">05</option>
+        <option value="6">06</option>
+        <option value="7">07</option>
+        <option value="8">08</option>
+        <option value="9">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+      </select>
+    </div>
+
+    <!-- ESTRELAS -->
+    <div id="estrelas">
+      <img src="assets/imgs/estrela-avaliacao.png" id="estrela1">
+      <img src="assets/imgs/estrela-avaliacao.png" id="estrela2">
+      <img src="assets/imgs/estrela-avaliacao.png" id="estrela3">
+      <img src="assets/imgs/estrela-avaliacao.png" id="estrela4">
+      <img src="assets/imgs/estrela-avaliacao.png" id="estrela5">
+    </div>
+
+    <div id="mensagemAvaliacao">
+      <input type="text" id="avaliacaoTexto" placeholder="Conte-nos sua avaliaçao:"> <br>
+      <button onclick="avaliar()">Avaliar</button>
+    </div>
+  </div>
+
+  <!-- IMAGEM DE DECORAÇÃO -->
+   <div id="imgDokuga">
+    <img src="assets/imgs/dokuga">
+   </div>
 </body>
+<script>
+  function avaliar() {
+    // capturando valores de estrelas para avaliação
+    let estrela1 = document.getElementById("estrela1");
+    let estrela2 = document.getElementById("estrela2");
+    let estrela3 = document.getElementById("estrela3");
+    let estrela4 = document.getElementById("estrela4");
+    let estrela5 = document.getElementById("estrela5");
+
+    // validações caso campos estejam vazios.
+  }
+</script>
+
 </html>
