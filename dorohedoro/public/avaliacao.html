@@ -39,11 +39,11 @@
 
 
 
-<!-- PRIMEIRA PARTE DA AVALIAÇÃO -->
+  <!-- PRIMEIRA PARTE DA AVALIAÇÃO -->
   <div id="avaliacao-">
     <div id="Container-avaliacao">
       <h2>Avalie o volume:</h2>
-      <select name="volumes" id="select-volume">
+      <select id="select-volume">
         <option value="0">Selecione o Volume</option>
         <option value="1">01</option>
         <option value="2">02</option>
@@ -89,22 +89,80 @@
     </div>
   </div>
 
-  <!-- IMAGEM DE DECORAÇÃO -->
-   <div id="imgDokuga">
-    <img src="assets/imgs/dokuga">
-   </div>
-</body>
-<script>
-  function avaliar() {
-    // capturando valores de estrelas para avaliação
-    let estrela1 = document.getElementById("estrela1");
-    let estrela2 = document.getElementById("estrela2");
-    let estrela3 = document.getElementById("estrela3");
-    let estrela4 = document.getElementById("estrela4");
-    let estrela5 = document.getElementById("estrela5");
+  <img src="" alt="">
 
-    // validações caso campos estejam vazios.
-  }
-</script>
+  <!-- IMAGEM DE DECORAÇÃO -->
+  <div id="imgDokuga">
+    <img src="assets/imgs/dokuga">
+  </div>
+</body>
 
 </html>
+<script>
+
+  // mudar cor de estrela quando for apertada
+
+  // capturar valor das estrelas
+  let estrela1 = document.getElementById("estrela1");
+  let estrela2 = document.getElementById("estrela2");
+  let estrela3 = document.getElementById("estrela3");
+  let estrela4 = document.getElementById("estrela4");
+  let estrela5 = document.getElementById("estrela5");
+
+
+
+  let stars = [estrela1, estrela2, estrela3, estrela4, estrela5];
+
+  // função para muda estrelas
+  function pintarEstrelas(qtd) {
+    for (let i = 0; i < stars.length; i++) {
+      if (i < qtd) {
+        stars[i].src = "assets/imgs/purple-start.png";
+      } else {
+        stars[i].src = "assets/imgs/estrela-avaliacao.png";
+      }
+    }
+  }
+
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].onclick = function () {
+      pintarEstrelas(i + 1);
+    };
+  }
+
+
+  nota = 0;
+
+
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].onclick = function () {
+      pintarEstrelas(i + 1);   // pinta as estrelas até a clicada
+      nota = i + 1; // salva a nota
+    };
+  }
+  // validar e  enviar avaliação para banco de dados
+  function avaliar() {
+    let select = document.getElementById("select-volume").value;
+    let texto = document.getElementById("avaliacaoTexto").value;
+
+
+    console.log(nota);
+
+    if (select == 0 || texto == '') {
+      // alert('falsoo')
+    } else {
+      fetch("/avaliacao/avaliarVolume", {
+        method: "POST",
+        headers: {
+          "Content-Type": "aplication/json"
+        },
+        body: JSON.stringify({
+          volumeServer: select,
+          avaliacaoServer: texto,
+          notaServer: nota
+        })
+      }
+      )
+    }
+  }
+</script>
