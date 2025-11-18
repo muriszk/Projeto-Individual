@@ -1,3 +1,7 @@
-Seja bem vindo ao meu Projeto individial, realizado para a faculdade de tecnologia Sptech - São Paulo Tech School!
+Este projeto foi desenvolvido como parte do meu trabalho individual para a SPTech e tem como foco o mangá Dorohedoro, da autora japonesa Q. Hayashida. A ideia nasceu da vontade de criar uma plataforma capaz de organizar, rankear e facilitar a leitura dos volumes já lançados, oferecendo aos fãs uma forma simples e intuitiva de acompanhar sua progressão, avaliar capítulos e descobrir quais volumes são os mais queridos pela comunidade.
 
-O tema escolhido foi o mangá da autora japonesa Q. Hayashida!
+A inspiração para o projeto veio da própria experiência dos leitores. Em diversos fóruns, muitos demonstram dificuldade para se organizar ou manter um ritmo consistente de leitura. Por isso, decidi transformar essa necessidade em uma solução prática, que conectasse fãs e valorizasse ainda mais a obra.
+
+Além do propósito técnico, este projeto também carrega um significado pessoal. Dorohedoro entrou na minha vida em um momento de incerteza, onde eu estava apenas “seguindo o fluxo”, e acabou se tornando uma obra com a qual me identifiquei profundamente. Em meio ao caos do mangá, encontrei leveza, humor e um tipo diferente de ordem — algo que me marcou e me acompanhou até aqui.
+
+Por isso, este projeto é mais do que uma entrega acadêmica: é uma homenagem. Uma forma de retribuir à autora e à comunidade aquilo que a obra me proporcionou, unindo minha paixão por desenvolvimento com o universo de um mangá que se tornou especial pra mim.
