@@ -35,7 +35,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/ranking", rankingRouter);
-app.use("/ranking", avaliacaoRouter);
+app.use("/avaliacao", avaliacaoRouter);
 // app.use("/medidas", medidasRouter);
 // app.use("/aquarios", aquariosRouter);
 // app.use("/empresas", empresasRouter);

@@ -1,12 +1,12 @@
 var database = require("../database/config");
 
-function avaliarVolume(avaliacao, darNota, volume){
+function avaliarVolume(volume, darNota, avaliacao){
     console.log('uau, model de avaliacao');
 
     var instrucaoSql = `
-        INSERT INTO avaliacao VALUES (idAvaliacao, idVolume, )
-            (default, '${avaliacao}', '${darNota}', '${volume}');
-    `
+        INSERT INTO avaliacao (idAvaliacao, idVolume, notaAvaliacao, textoAvaliacao) VALUES
+            (default, '${volume}','${darNota}', '${avaliacao}');
+    `;
 
     console.log(instrucaoSql);
 
