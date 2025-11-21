@@ -13,12 +13,15 @@ function autenticar(email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function cadastrar(email, senha) {
+function cadastrar(nome, email, senha) {
     console.log("ACESSEI O USUARIO MODEL");
 
     var instrucaoSql = `
-        INSERT INTO usuario (emailUsuario, senhaUsuario) 
-        VALUES ('${email}', '${senha}');
+        INSERT INTO usuario (idUsuario, nomeUsuario, emailUsuario, senhaUsuario) 
+        VALUES (default,
+         '${nome}',
+         '${email}',
+         '${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
 

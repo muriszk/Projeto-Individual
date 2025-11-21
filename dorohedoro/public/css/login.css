@@ -48,6 +48,7 @@ body {
     justify-content: center;
 }
 
+
 .containerLogin {
     background-image: url(../assets/imgs/En.jpg);
     background-size:cover ;
@@ -79,6 +80,8 @@ h2{
     align-items: center;
     justify-content: center;
 }
+
+
 
 .campo input{
     width: 80%;

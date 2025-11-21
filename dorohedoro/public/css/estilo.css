@@ -304,12 +304,12 @@ hr {
 
 .card {
   width: 50%;
-  background-color: #e5e5e5;
+  background-color: #ff0000;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: white;
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
@@ -334,14 +334,12 @@ hr {
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
   text-align: center;
   border-radius: 10px;
   margin: 0;
 }
 
 .formulario select {
-  border: 2px solid #32b9cd;
   background-color: white;
   color: gray;
   height: 36px;
@@ -365,7 +363,7 @@ hr {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #ED145B;
+  background-color: black;
   width: 120px;
   height: 30px;
   align-self: center;
@@ -411,7 +409,6 @@ hr {
   width: 230px;
   position: fixed;
   border-radius: 4px;
-  border: #ED145B 3px solid;
   padding: 10px;
   margin-right: 10%;
 }
@@ -433,7 +430,7 @@ hr {
 
 input {
   margin-bottom: 10px;
-  border: 2px solid #32b9cd;
+  border: 2px solid white;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
