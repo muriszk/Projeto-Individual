@@ -99,7 +99,7 @@ GROUP BY u.idUsuario
 ORDER BY totalAvaliacoes DESC;
 
 -- mostra engajamento 
-SELECT * FROM engajamento;
+-- SELECT * FROM engajamento;
 
 
 ALTER TABLE avaliacao MODIFY textoAvaliacao VARCHAR(200);

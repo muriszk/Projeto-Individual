@@ -18,15 +18,15 @@ function ranking(req, res) {
         .catch(erro => res.status(500).json(erro));
 }
 
-function engajamento(req, res) {
-    dashboardModel.listarEngajamento()
-        .then(resultado => res.json(resultado))
-        .catch(erro => res.status(500).json(erro));
-}
+// function engajamento(req, res) {
+//     dashboardModel.listarEngajamento()
+//         .then(resultado => res.json(resultado))
+//         .catch(erro => res.status(500).json(erro));
+// }
 
 module.exports = {
     volMain,
     medias,
-    ranking,
-    engajamento
+    ranking
+    // engajamento
 }

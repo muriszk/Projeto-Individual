@@ -15,14 +15,14 @@ function listarRanking() {
     return database.executar(query);
 }
 
-function listarEngajamento() {
-    var query = `SELECT * FROM engajamento;`;
-    return database.executar(query);
-}
+// function listarEngajamento() {
+//     var query = `SELECT * FROM engajamento;`;
+//     return database.executar(query);
+// }
 
 module.exports = {
     listarVolMain,
     listarMedias,
-    listarRanking,
-    listarEngajamento
+    listarRanking
+    // listarEngajamento
 }

@@ -7,51 +7,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
-
-    
-    <!-- <link rel="stylesheet" href="./../css/dashboards.css"> -->
-    <!-- <link rel="stylesheet" href="./../css/estilo.css" /> -->
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-
-
-    <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/dashboards.css">
 </head>
 
 <!--  -->
 
 <body onload=" atualizarFeed()">
 
-<div class="dash">
-    <h1>Dashboard de Avaliações</h1>
-
-    <div class="graph">
-        <h2>Volumes mais avaliados</h2>
-        <canvas id="graficoAvaliacoes"></canvas>
+    <div class="header">
+        <div class="container">
+            <div id="logo">
+                <img src="../assets/imgs/ebisu-icon.png" width="50px">
+                <h1 class="titulo">Dorohedoro</h1>
+            </div>
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="#banner">Sobre</a>
+                </li>
+                <li>
+                    <a href="#volumes">Volumes</a>
+                </li>
+                <li>
+                    <a href="ranking.html">Ranking</a>
+                </li>
+                <li>
+                    <a href="avaliacao.html">avaliacao</a>
+                </li>
+            </ul>
+            <div class="btnEntrarLogin">
+                <a href="login.html" id="log">Login</a>
+                <a href="cadastro.html" id="cad">Cadastrar-se</a>
+            </div>
+        </div>
     </div>
 
-    <div class="graph">
-        <h2>Média das avaliações</h2>
-        <canvas id="graficoMedias"></canvas>
-    </div>
+    <div class="dash">
+        <h1>DoroBoard</h1>
 
-    <div class="graph">
-        <h2>Ranking geral</h2>
-        <canvas id="graficoRanking"></canvas>
-    </div>
-
+        <div id="container-dash">
+            <div id="div-top">
+                <div class="graph">
+                    <h2>Volumes mais avaliados</h2>
+                    <canvas id="graficoAvaliacoes"></canvas>
+                </div>
+                <div class="graph">
+                    <h2>Média das avaliações</h2>
+                    <canvas id="graficoMedias"></canvas>
+                </div>
+            </div>
+            <br>
+            <!-- <div class="graph">
+            <h2>Ranking geral</h2>
+            <canvas id="graficoRanking"></canvas>
+        </div> -->
+        </div>
+        <!-- 
     <div class="graph">
         <h2>Engajamento dos usuários</h2>
         <canvas id="graficoEngajamento"></canvas>
+    </div> -->
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
 
 
 
@@ -60,73 +81,116 @@
 </html>
 
 <script>
-  fetch("/dashboard/volumes")
-    .then(res => res.json())
-    .then(dados => {
-        const labels = dados.map(v => v.nomeVolume);
-        const valores = dados.map(v => v.totalAvaliacoes);
+    function gerarCores(qtd) {
+        const cores = [];
+        for (let i = 0; i < qtd; i++) {
+            cores.push(i % 2 === 0 ? "#e4002b" : "#000000"); // vermelho / preto
+        }
+        return cores;
+    }
 
-        new Chart(document.getElementById("graficoAvaliacoes"), {
-            type: "bar",
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: "Total de Avaliações",
-                    data: valores,
-                    borderWidth: 1
-                }]
+    // VOLUMES MAIS AVALIADOS
+    fetch("/dashboard/volumes")
+        .then(res => res.json())
+        .then(dados => {
+            const labels = [];
+            const valores = [];
+
+            for (let i = 0; i < dados.length; i++) {
+                labels.push(dados[i].nomeVolume);
+                valores.push(dados[i].totalAvaliacoes);
             }
+
+            new Chart(document.getElementById("graficoAvaliacoes"), {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Total de Avaliações",
+                        data: valores,
+                        backgroundColor: gerarCores(valores.length),
+                        borderColor: gerarCores(valores.length)
+                        // borderWidth: 2
+                    }]
+                },
+                options: {
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: "#ccc" } },
+                        y: { ticks: { color: "#ccc" } },
+                        responsive: true
+                    }
+                }
+            });
         });
-    });
 
-
+    // MÉDIA DAS AVALIAÇÕES
     fetch("/dashboard/medias")
-    .then(res => res.json())
-    .then(dados => {
-        new Chart(document.getElementById("graficoMedias"), {
-            type: "bar",
-            data: {
-                labels: dados.map(v => v.nomeVolume),
-                datasets: [{
-                    label: "Média das Avaliações",
-                    data: dados.map(v => v.mediaAvaliacao),
-                    borderWidth: 1
-                }]
+        .then(res => res.json())
+        .then(dados => {
+            const labels = [];
+            const valores = [];
+
+            for (let i = 0; i < dados.length; i++) {
+                labels.push(dados[i].nomeVolume);
+                valores.push(dados[i].mediaAvaliacao);
             }
+
+            new Chart(document.getElementById("graficoMedias"), {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Média das Avaliações",
+                        data: valores,
+                        backgroundColor: gerarCores(valores.length),
+                        borderColor: gerarCores(valores.length)
+                        // borderWidth: 2
+                    }]
+                },
+                options: {
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: "#ccc" } },
+                        y: { ticks: { color: "#ccc" } },
+                        responsive: true
+                    }
+                }
+            });
         });
-    });
 
+    // RANKING GERAL
+    //   fetch("/dashboard/ranking")
+    //     .then(res => res.json())
+    //     .then(dados => {
+    //         const labels = [];
+    //         const valores = [];
 
-fetch("/dashboard/ranking")
-    .then(res => res.json())
-    .then(dados => {
-        new Chart(document.getElementById("graficoRanking"), {
-            type: "bar",
-            data: {
-                labels: dados.map(v => v.nomeVolume),
-                datasets: [{
-                    label: "Ranking Score",
-                    data: dados.map(v => v.rankingScore),
-                    borderWidth: 1
-                }]
-            }
-        });
-    });
+    //         for (let i = 0; i < dados.length; i++) {
+    //             labels.push(dados[i].nomeVolume);
+    //             valores.push(dados[i].rankingScore);
+    //         }
 
-fetch("/dashboard/engajamento")
-    .then(res => res.json())
-    .then(dados => {
-        new Chart(document.getElementById("graficoEngajamento"), {
-            type: "bar",
-            data: {
-                labels: dados.map(u => u.nomeUsuario),
-                datasets: [{
-                    label: "Total de Avaliações",
-                    data: dados.map(u => u.totalAvaliacoes),
-                    borderWidth: 1
-                }]
-            }
-        });
-    });
-
+    //         new Chart(document.getElementById("graficoRanking"), {
+    //             type: "bar",
+    //             data: {
+    //                 labels: labels,
+    //                 datasets: [{
+    //                     label: "Ranking Score",
+    //                     data: valores,
+    //                     backgroundColor: gerarCores(valores.length),
+    //                     borderColor: gerarCores(valores.length)
+    //                     // borderWidth: 2
+    //                 }]
+    //             },
+    //             options: {
+    //                 plugins: { legend: { display: false } },
+    //                 scales: {
+    //                     x: { ticks: { color: "#ccc" } },
+    //                     y: { ticks: { color: "#ccc" } },
+    //                     responsive: true
+    //                 }
+    //             }
+    //         });
+    // });
 </script>
