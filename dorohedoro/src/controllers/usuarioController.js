@@ -5,12 +5,15 @@ function autenticar(req, res) { // começo function autenticar
     var nome = req.body.emailServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var emailAdmin = 'murilo@admin.com';
 
     if (email == undefined) {
         res.status(400).send("Digite um e-mail válido, <br> usuário de magia!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else {
+    } else if (nome == undefined) {
+        res.status(400).send("Seu nome está indefinida!");
+    } else{
         usuarioModel.autenticar(email, senha)
             .then(
                 function (resultadoAutenticar) {
@@ -41,15 +44,15 @@ function autenticar(req, res) { // começo function autenticar
                 }
             );
     }
-
 }
+
 
 function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-    
+
     if (email == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {

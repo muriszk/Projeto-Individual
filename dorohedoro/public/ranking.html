@@ -1,11 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
+
 <body>
-    
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking | Dorohedoro</title>
+  <link rel="stylesheet" href="css/ranking.css" />
+</head>
+
+  <body>
+    <header class="ranking-header">
+      <img class="ranking-logo" src="assets/imgs/ebisu-icon.png" alt="Logo Dorohedoro">
+      <h1>Ranking Top Volumes</h1>
+    </header>
+
+    <main id="ranking-container" class="duas-colunas">
+      <div id="coluna-esquerda" class="coluna"></div>
+      <div id="coluna-direita" class="coluna"></div>
+    </main>
+
+    <div class="ranking-bg">
+      <img src="assets/imgs/fundo-ranking.png" alt="Fundo Dorohedoro" class="fundo-ranking">
+    </div>
+
+    <script src="js/ranking-duas-colunas.js"></script>
+
+  </html>
 </body>
+
 </html>
+<script>
+  fetch("/dashboard/ranking")
+    .then(res => res.json())
+    .then(dados => {
+      let colEsq = document.getElementById("coluna-esquerda");
+      let colDir = document.getElementById("coluna-direita");
+
+      let maxItens = 10;
+      for (let i = 0; i < dados.length && i < maxItens; i++) {
+        let volume = dados[i];
+
+        let card = document.createElement("div");
+        card.classList.add("ranking-card");
+
+        let pos = document.createElement("div");
+        pos.classList.add("numero-posicao");
+        pos.innerText = i + 1;
+
+        let info = document.createElement("div");
+        info.classList.add("info-volume");
+        info.innerHTML = `
+        <h2>${volume.nomeVolume}</h2>
+        <p>Média: ${Number(volume.mediaAvaliacao).toFixed(2)}</p>
+        <p>Avaliações: ${volume.totalAvaliacoes}</p>
+      `;
+
+        card.appendChild(pos);
+        card.appendChild(info);
+
+        if (i < 5) {
+          colEsq.appendChild(card);
+        } else {
+          colDir.appendChild(card);
+        }
+      }
+    })
+    .catch(error => {
+      console.error("Erro ao carregar ranking:", error);
+      let container = document.getElementById("ranking-container");
+      container.innerHTML = "<p>Erro ao carregar ranking.</p>";
+    });
+  
+
+
+</script>

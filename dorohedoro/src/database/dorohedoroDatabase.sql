@@ -1,6 +1,8 @@
 CREATE DATABASE dorohedoro;
 USE dorohedoro;
 
+
+
 CREATE TABLE usuario(
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nomeUsuario VARCHAR(45),
@@ -103,4 +105,29 @@ ORDER BY totalAvaliacoes DESC;
 
 
 ALTER TABLE avaliacao MODIFY textoAvaliacao VARCHAR(200);
+
+INSERT INTO volume (idVolume, nomeVolume, numeroVolume, idUsuario) VALUES
+(1, 'Dorohedoro Vol. 1', '1', NULL),
+(2, 'Dorohedoro Vol. 2', '2', NULL),
+(3, 'Dorohedoro Vol. 3', '3', NULL),
+(4, 'Dorohedoro Vol. 4', '4', NULL),
+(5, 'Dorohedoro Vol. 5', '5', NULL),
+(6, 'Dorohedoro Vol. 6', '6', NULL),
+(7, 'Dorohedoro Vol. 7', '7', NULL),
+(8, 'Dorohedoro Vol. 8', '8', NULL),
+(9, 'Dorohedoro Vol. 9', '9', NULL),
+(10, 'Dorohedoro Vol. 10', '10', NULL),
+(11, 'Dorohedoro Vol. 11', '11', NULL),
+(12, 'Dorohedoro Vol. 12', '12', NULL),
+(13, 'Dorohedoro Vol. 13', '13', NULL),
+(14, 'Dorohedoro Vol. 14', '14', NULL),
+(15, 'Dorohedoro Vol. 15', '15', NULL),
+(16, 'Dorohedoro Vol. 16', '16', NULL),
+(17, 'Dorohedoro Vol. 17', '17', NULL),
+(18, 'Dorohedoro Vol. 18', '18', NULL),
+(19, 'Dorohedoro Vol. 19', '19', NULL),
+(20, 'Dorohedoro Vol. 20', '20', NULL),
+(21, 'Dorohedoro Vol. 21', '21', NULL),
+(22, 'Dorohedoro Vol. 22', '22', NULL),
+(23, 'Dorohedoro Vol. 23', '23', NULL);
 

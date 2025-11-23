@@ -116,10 +116,15 @@
                     // sessionStorage.ID_USUARIO = json.id;
                     // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
-                    setTimeout(function () {
-                        window.location = "/dashboard/dashboard.html";
-                    }, 1000);
-
+                    if (emailVar === 'murilo@email.com' && senhaVar === '1234') {
+                        setTimeout(function () {
+                            window.location = "/dashboard/dashboard.html";
+                        }, 1000);
+                    } else {
+                        setTimeout(function () {
+                            window.location = "/public/avaliacao.html";
+                        }, 1000);
+                    }
 
                 });
 
