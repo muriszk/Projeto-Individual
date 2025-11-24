@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>DoroBoard</title>
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="shortcut icon" href="../assets/imgs/ebisu-icon.png" type="image/x-icon">
 </head>
 
 <!--  -->
@@ -46,6 +47,21 @@
 
     <div class="dash">
         <h1>doro<span id="board" style="color:#e4002b;">BOARD</span></h1>
+
+        <div id="kpi-container">
+            <div class="kpi-card">
+                <h3>Volume Mais Avaliado</h3>
+                <p id="kpiMaisAvaliado" class="kpi-valor">--</p>
+                <span id="kpiMaisAvaliadoInfo" class="kpi-desc">Carregando...</span>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Maior Média de Avaliações</h3>
+                <p id="kpiMaiorMedia" class="kpi-valor">--</p>
+                <span id="kpiMaiorMediaInfo" class="kpi-desc">Carregando...</span>
+            </div>
+        </div>
+
 
         <div id="container-dash">
             <div id="div-top">
@@ -158,6 +174,54 @@
                 }
             });
         });
+
+    //  KPI 1 — VOLUME MAIS AVALIADO 
+
+fetch("/dashboard/volumes")
+    .then(res => res.json())
+    .then(dados => {
+
+        if (dados.length === 0) return;
+
+        let maisAvaliado = dados[0]; // começa pelo primeiro
+
+        for (let i = 1; i < dados.length; i++) {
+            if (dados[i].totalAvaliacoes > maisAvaliado.totalAvaliacoes) {
+                maisAvaliado = dados[i];
+            }
+        }
+
+        document.getElementById("kpiMaisAvaliado").innerText =
+            maisAvaliado.totalAvaliacoes + " avaliações";
+
+        document.getElementById("kpiMaisAvaliadoInfo").innerText =
+            `O volume mais popular é "${maisAvaliado.nomeVolume}".`;
+    });
+
+
+    // KPI 2 — MAIOR MÉDIA 
+
+fetch("/dashboard/medias")
+    .then(res => res.json())
+    .then(dados => {
+
+        if (dados.length === 0) return;
+
+        let maiorMedia = dados[0]; // começa pelo primeiro
+
+        for (let i = 1; i < dados.length; i++) {
+            if (dados[i].mediaAvaliacao > maiorMedia.mediaAvaliacao) {
+                maiorMedia = dados[i];
+            }
+        }
+
+        document.getElementById("kpiMaiorMedia").innerText =
+            Number(maiorMedia.mediaAvaliacao).toFixed(2);
+
+        document.getElementById("kpiMaiorMediaInfo").innerText =
+            `Melhor avaliado: "${maiorMedia.nomeVolume}".`;
+    });
+
 
     // RANKING GERAL
     //   fetch("/dashboard/ranking")
