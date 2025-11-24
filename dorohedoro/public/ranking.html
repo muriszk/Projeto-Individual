@@ -1,56 +1,87 @@
-
-
-<body>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ranking | Dorohedoro</title>
+  <title>Ranking</title>
+  <link rel="shortcut icon" href="assets/imgs/ebisu-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/ranking.css" />
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 
-  <body>
-    <header class="ranking-header">
-      <img class="ranking-logo" src="assets/imgs/ebisu-icon.png" alt="Logo Dorohedoro">
-      <h1>Ranking Top Volumes</h1>
-    </header>
-
-    <main id="ranking-container" class="duas-colunas">
-      <div id="coluna-esquerda" class="coluna"></div>
-      <div id="coluna-direita" class="coluna"></div>
-    </main>
-
-    <div class="ranking-bg">
-      <img src="assets/imgs/fundo-ranking.png" alt="Fundo Dorohedoro" class="fundo-ranking">
+<body>
+  <div class="header">
+    <div class="container">
+      <div id="logo">
+        <a href="index.html"><img src="assets/imgs/ebisu-icon.png" width="50px"></a>
+        <h1 class="titulo">Dorohedoro</h1>
+      </div>
+      <ul class="navbar">
+        <li class="agora">
+          <a href="#banner">Sobre</a>
+        </li>
+        <li>
+          <a href="#volumes">Volumes</a>
+        </li>
+        <li>
+          <a href="ranking.html">Ranking</a>
+        </li>
+        <li>
+          <a href="avaliacao.html">Avaliacao</a>
+        </li>
+        <li>
+          <a href="rpg.html">Rpg</a>
+        </li>
+      </ul>
+      <div class="btnEntrarLogin">
+        <a href="login.html" id="log">Login</a>
+        <a href="cadastro.html" id="cad">Cadastrar-se</a>
+      </div>
     </div>
+  </div>
 
-    <script src="js/ranking-duas-colunas.js"></script>
+  <hr>
 
-  </html>
+  <div id="titulo1">
+    <h1>Ranking Top Volumes</h1>
+  </div>
+
+  <main id="ranking-container" class="duas-colunas">
+    <div id="coluna-esquerda" class="coluna"></div>
+    <div id="coluna-direita" class="coluna"></div>
+  </main>
+
+  <div class="ranking-bg">
+    <img src="assets/imgs/fundo-ranking.png" class="fundo-ranking">
+  </div>
+
+  <script src="js/ranking-duas-colunas.js"></script>
 </body>
+
+</html>
+
 
 </html>
 <script>
   fetch("/dashboard/ranking")
     .then(res => res.json())
     .then(dados => {
-      let colEsq = document.getElementById("coluna-esquerda");
-      let colDir = document.getElementById("coluna-direita");
+      const colEsq = document.getElementById("coluna-esquerda");
+      const colDir = document.getElementById("coluna-direita");
 
-      let maxItens = 10;
+      const maxItens = 10;
       for (let i = 0; i < dados.length && i < maxItens; i++) {
-        let volume = dados[i];
+        const volume = dados[i];
 
-        let card = document.createElement("div");
+        const card = document.createElement("div");
         card.classList.add("ranking-card");
 
-        let pos = document.createElement("div");
+        const pos = document.createElement("div");
         pos.classList.add("numero-posicao");
-        pos.innerText = i + 1;
+        pos.innerHTML = `${i + 1}`;
 
-        let info = document.createElement("div");
+        const info = document.createElement("div");
         info.classList.add("info-volume");
         info.innerHTML = `
         <h2>${volume.nomeVolume}</h2>
@@ -70,10 +101,11 @@
     })
     .catch(error => {
       console.error("Erro ao carregar ranking:", error);
-      let container = document.getElementById("ranking-container");
-      container.innerHTML = "<p>Erro ao carregar ranking.</p>";
+      const container = document.getElementById("ranking-container");
+      container.innerHTML = "<p style='color: red;'>Erro ao carregar ranking.</p>";
     });
-  
+
+
 
 
 </script>

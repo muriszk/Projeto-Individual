@@ -85,6 +85,11 @@
             mensagem_erro.innerHTML = "Usuário de magia.. Digite seu E-mail";
             finalizarAguardar();
             return false;
+        } else if (senhaVar == '') {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Usuário de magia.. Digite sua senha...";
+            finalizarAguardar();
+            return false;
         }
         else {
             setInterval(sumirMensagem, 2000)
@@ -122,7 +127,7 @@
                         }, 1000);
                     } else {
                         setTimeout(function () {
-                            window.location = "/public/avaliacao.html";
+                            window.location = "rpg.html";
                         }, 1000);
                     }
 

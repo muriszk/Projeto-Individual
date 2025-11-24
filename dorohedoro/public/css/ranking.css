@@ -10,14 +10,36 @@ body {
   overflow-x: hidden;
 }
 
+a{
+  text-decoration: none;
+}
+
+#titulo1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .ranking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+  gap: 20px;
+  padding: 20px 0;
+  /* z-index: 10; */
+  position: relative;
+}
+
+#navLogo{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 20px 0;
-  z-index: 10;
-  position: relative;
+}
+
+#dorohedoro{
+  color: white;
 }
 
 .ranking-logo {
@@ -37,7 +59,7 @@ body {
   gap: 40px;
   max-width: 900px;
   margin: 40px auto;
-  z-index: 10;
+  /* z-index: 10; */
   position: relative;
 }
 
@@ -83,7 +105,7 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 1;
+  /* z-index: 1; */
   pointer-events: none;
   overflow: hidden;
 }

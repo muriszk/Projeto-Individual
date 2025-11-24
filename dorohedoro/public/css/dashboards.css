@@ -9,17 +9,23 @@ body {
 }
 
 .header {
-  height:80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  border-bottom: 1px solid white;
+
 }
 
 .header .container {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+
+.titulo {
+  font-size: 1.5rem;
 }
 
 .container {
@@ -28,9 +34,7 @@ body {
   margin: auto;
 }
 
-.btnEntrarLogin a{ 
-  font-size: 0px;
-}
+
 
 .container {
   display: flex;
@@ -58,13 +62,12 @@ body {
 }
 
 .navbar {
-  width: 500px;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   color: #fff;
-  font-size: 10px;
   gap: 20px;
 }
 
@@ -79,11 +82,26 @@ li a {
   font-style: none;
 }
 
+.btnEntrarLogin a {
+  font-size: 12px;
+}
+
+.btnEntrarLogin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 18%;
+  margin-left: 180px;
+  gap: 15px;
+}
+
 #cad {
-  width: 20px;
+  width: 2000px;
   background-color: white;
   color: black;
-  padding: 2px;
+  padding: 6px;
   border-radius: 5px;
 }
 
@@ -96,7 +114,8 @@ li a {
 #log {
   border: 1px solid white;
   border-radius: 5px;
-  padding: 2px;
+  padding: 6px;
+
 }
 
 #log:hover {
@@ -108,8 +127,16 @@ li a {
 
 .dash {
   max-width: 1500px;
-  margin: auto;
+  margin: 10px auto;
 }
+
+.dash h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 #container-dash {
   display: flex;

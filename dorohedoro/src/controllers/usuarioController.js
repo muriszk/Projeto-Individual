@@ -5,7 +5,6 @@ function autenticar(req, res) { // começo function autenticar
     var nome = req.body.emailServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var emailAdmin = 'murilo@admin.com';
 
     if (email == undefined) {
         res.status(400).send("Digite um e-mail válido, <br> usuário de magia!");
@@ -21,7 +20,7 @@ function autenticar(req, res) { // começo function autenticar
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     res.json({
-                        nome: req.body.nomeServer,
+                        // nome: req.body.nomeServer,
                         email: req.body.emailServer,
                         senha: req.body.senhaServer
                     });

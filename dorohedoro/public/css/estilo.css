@@ -31,6 +31,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
+  background-color: black;
 }
 
 .header .container {
@@ -114,25 +115,45 @@ hr {
 
 /* BANNER */
 
+/* BANNER */
 .banner {
+  position: relative;
   height: var(--tamanho-banner);
   color: white;
+  overflow: hidden;
 }
 
+/* Camada de fundo borrado */
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url(../assets/imgs/back.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  z-index: 1;
+}
 
+.banner-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
 
-.banner .container {
+.banner-content .container {
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-.banner .container p {
+.banner-content .container p {
   width: 65%;
   margin: 0;
   padding: 0;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
+
 
 .banner .container span {
   font-weight: 800;
