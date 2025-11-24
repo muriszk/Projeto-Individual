@@ -14,8 +14,6 @@
     <link rel="shortcut icon" href="../assets/imgs/ebisu-icon.png" type="image/x-icon">
 </head>
 
-<!--  -->
-
 <body onload=" atualizarFeed()">
 
     <div class="header">
@@ -26,16 +24,16 @@
             </div>
             <ul class="navbar">
                 <li class="agora">
-                    <a href="#banner">Sobre</a>
+                    <a href="../index.html#banner">Sobre</a>
                 </li>
                 <li>
-                    <a href="#volumes">Volumes</a>
+                    <a href="../index.html#volumes">Volumes</a>
                 </li>
                 <li>
-                    <a href="ranking.html">Ranking</a>
+                    <a href="../ranking.html">Ranking</a>
                 </li>
                 <li>
-                    <a href="avaliacao.html">avaliacao</a>
+                    <a href="../avaliacao.html">avaliacao</a>
                 </li>
             </ul>
             <div class="btnEntrarLogin">
@@ -69,10 +67,10 @@
                     <h2>Volumes mais avaliados</h2>
                     <canvas id="graficoAvaliacoes"></canvas>
                 </div>
-                <div class="graph">
+                <!-- <div class="graph">
                     <h2>Média das avaliações</h2>
                     <canvas id="graficoMedias"></canvas>
-                </div>
+                </div> -->
             </div>
             <br>
             <!-- <div class="graph">
@@ -98,7 +96,7 @@
 
 <script>
     function gerarCores(qtd) {
-        const cores = [];
+        let cores = [];
         for (let i = 0; i < qtd; i++) {
             cores.push(i % 2 === 0 ? "#e4002b" : "#000000"); // vermelho / preto
         }
@@ -109,8 +107,8 @@
     fetch("/dashboard/volumes")
         .then(res => res.json())
         .then(dados => {
-            const labels = [];
-            const valores = [];
+            let labels = [];
+            let valores = [];
 
             for (let i = 0; i < dados.length; i++) {
                 labels.push(dados[i].nomeVolume);
@@ -141,39 +139,39 @@
         });
 
     // MÉDIA DAS AVALIAÇÕES
-    fetch("/dashboard/medias")
-        .then(res => res.json())
-        .then(dados => {
-            const labels = [];
-            const valores = [];
+    // fetch("/dashboard/medias")
+    //     .then(res => res.json())
+    //     .then(dados => {
+    //         let labels = [];
+    //         let valores = [];
 
-            for (let i = 0; i < dados.length; i++) {
-                labels.push(dados[i].nomeVolume);
-                valores.push(dados[i].mediaAvaliacao);
-            }
+    //         for (let i = 0; i < dados.length; i++) {
+    //             labels.push(dados[i].nomeVolume);
+    //             valores.push(dados[i].mediaAvaliacao);
+    //         }
 
-            new Chart(document.getElementById("graficoMedias"), {
-                type: "bar",
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: "Média das Avaliações",
-                        data: valores,
-                        backgroundColor: gerarCores(valores.length),
-                        borderColor: gerarCores(valores.length)
-                        // borderWidth: 2
-                    }]
-                },
-                options: {
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { ticks: { color: "#ccc" } },
-                        y: { ticks: { color: "#ccc" } },
-                        responsive: true
-                    }
-                }
-            });
-        });
+    //         new Chart(document.getElementById("graficoMedias"), {
+    //             type: "bar",
+    //             data: {
+    //                 labels: labels,
+    //                 datasets: [{
+    //                     label: "Média das Avaliações",
+    //                     data: valores,
+    //                     backgroundColor: gerarCores(valores.length),
+    //                     borderColor: gerarCores(valores.length)
+    //                     // borderWidth: 2
+    //                 }]
+    //             },
+    //             options: {
+    //                 plugins: { legend: { display: false } },
+    //                 scales: {
+    //                     x: { ticks: { color: "#ccc" } },
+    //                     y: { ticks: { color: "#ccc" } },
+    //                     responsive: true
+    //                 }
+    //             }
+    //         });
+    //     });
 
     //  KPI 1 — VOLUME MAIS AVALIADO 
 
@@ -227,8 +225,8 @@ fetch("/dashboard/medias")
     //   fetch("/dashboard/ranking")
     //     .then(res => res.json())
     //     .then(dados => {
-    //         const labels = [];
-    //         const valores = [];
+    //         let labels = [];
+    //         let valores = [];
 
     //         for (let i = 0; i < dados.length; i++) {
     //             labels.push(dados[i].nomeVolume);

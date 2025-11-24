@@ -74,7 +74,7 @@ ORDER BY mediaAvaliacao DESC;
 -- mostra as média de avaliações 
 SELECT * FROM mediaAvaliacoes;
 
--- view para mostrar Ranking geral (nota + quantidade)
+-- view para mostrar Ranking geral (nota mais a quantidade)
 CREATE VIEW rankingGeral AS 
 SELECT 
     v.idVolume,
