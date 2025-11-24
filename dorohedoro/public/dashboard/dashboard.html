@@ -11,6 +11,7 @@
     <script src="./../js/alerta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <link rel="shortcut icon" href="../assets/imgs/ebisu-icon.png" type="image/x-icon">
 </head>
 
@@ -48,7 +49,7 @@
 
         <div id="kpi-container">
             <div class="kpi-card">
-                <h3>Volume Mais Avaliado</h3>
+                <h3>Volume <span id="mais">MAIS</span> Avaliado</h3>
                 <p id="kpiMaisAvaliado" class="kpi-valor">--</p>
                 <span id="kpiMaisAvaliadoInfo" class="kpi-desc">Carregando...</span>
             </div>
@@ -64,7 +65,7 @@
         <div id="container-dash">
             <div id="div-top">
                 <div class="graph">
-                    <h2>Volumes mais avaliados</h2>
+                    <h2>Volumes melhor avaliados</h2>
                     <canvas id="graficoAvaliacoes"></canvas>
                 </div>
                 <!-- <div class="graph">
@@ -142,7 +143,7 @@
     // fetch("/dashboard/medias")
     //     .then(res => res.json())
     //     .then(dados => {
-    //         let labels = [];
+    //         let labels = [];1
     //         let valores = [];
 
     //         for (let i = 0; i < dados.length; i++) {

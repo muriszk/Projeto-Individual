@@ -57,7 +57,9 @@ body {
   justify-content: center;
 }
 
-
+#mais{
+  color: #e4002b;
+}
 
 .kpi-card h3 {
   margin-bottom: 10px;
