@@ -52,7 +52,10 @@ SELECT
 FROM volume v
 LEFT JOIN avaliacao a ON a.idVolume = v.idVolume
 GROUP BY v.idVolume
-ORDER BY totalAvaliacoes DESC;
+ORDER BY totalAvaliacoes DESC
+LIMIT 10;
+
+DROP VIEW volMainAvaliados;
 
 -- mostrar
 SELECT * FROM volMainAvaliados;
@@ -86,7 +89,9 @@ SELECT
 FROM volume v
 LEFT JOIN avaliacao a ON a.idVolume = v.idVolume
 GROUP BY v.idVolume
-ORDER BY rankingScore DESC;
+ORDER BY rankingScore DESC 
+LIMIT 10
+;
 
 SELECT * FROM rankingGeral;
 

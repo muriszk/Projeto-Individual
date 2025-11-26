@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 
 body {
-  background: #0d0d0d;
+  background: #000;
   color: #eeeeee;
-  font-family: "Courier New", monospace;
+  font-family: "League Gothic", sans-serif;
   margin: 0;
   padding: 20px;
 }
 
-.header {
+.header .container{
   height: 80px;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ body {
 
 .header .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
@@ -101,7 +101,7 @@ body {
 #logo {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .navbar {

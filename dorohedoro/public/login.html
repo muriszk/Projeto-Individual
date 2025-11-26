@@ -40,19 +40,19 @@
                 <div class="formulario">
                     <h2>LOGIN</h2>
                     <div class="campo">
-                        <span>E-mail:</span> <br>
+                        <span class="iptText">E-mail:</span> <br>
                         <input id="email_input" type="text" placeholder="Login">
                     </div>
                 </div>
 
                 <div class="campo">
-                    <span>senha</span> <br>
+                    <span class="iptText">senha:</span> <br>
                     <input id="senha_input" type="password" placeholder="Login">
                 </div>
-                <button class="botao" onclick="entrar()">Prosseguir</button>
+                <div id="botao"><button class="botao" onclick="entrar()">Prosseguir</button></div>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/imgs/gif-wait.gif" id="loading-gif">
+                    <img src="./assets/imgs/gif-wait.gif" id="loading-gif" width="100px " style="margin:0 auto;">
                 </div>
 
                 <div id="div_erros_login"></div>
