@@ -12,4 +12,7 @@ git add .
 echo "=== commitadno ==="
 git commit -m "$msg"
 
+echo "=== adicionando ao repositorio remoto, somente a branch main==="
+git push origin main
+
 echo "finalizado!"
