@@ -4,7 +4,7 @@ echo "=== verificando situação atual  ==="
 git status 
 
 echo "=== adicione a mensagem"
-read -p " Digite a mensagem do commit" msg
+read -p " Digite a mensagem do commit: " msg
 
 echo "=== Adicionando alterações ==="
 git add .
