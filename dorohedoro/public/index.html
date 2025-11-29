@@ -51,29 +51,26 @@
 
   <hr>
 
-<div class="banner" id="banner">
+  <div class="banner" id="banner">
 
-  <div class="banner-bg"></div>
+    <div class="banner-bg"></div>
 
-  <div class="banner-content">
-    <div class="container">
-      <div class="mainImg">
-        <img src="assets/imgs/logoMetal.png" width="500px">
-      </div>
-      <div class="mainTxt">
-        <p>Dorohedoro é uma obra japonesa que mistura caos, humor e violência de um jeito único. A busca de Caiman por
-          sua identidade mostra um mundo cheio de magia, mutações e personagens excêntricos, sempre com reviravoltas
-          criativas e imprevisíveis. Dorohedoro conquista pela maneira que independente do caos, no final tudo está
-          conectado!</p>
+    <div class="banner-content">
+      <div class="container">
+        <div class="mainImg">
+          <img src="assets/imgs/logoMetal.png" width="500px">
+        </div>
+        <div class="mainTxt">
+          <p>Dorohedoro é uma obra japonesa que mistura caos, humor e violência de um jeito único. A busca de Caiman por
+            sua identidade mostra um mundo cheio de magia, mutações e personagens excêntricos, sempre com reviravoltas
+            criativas e imprevisíveis. Dorohedoro conquista pela maneira que independente do caos, no final tudo está
+            conectado!</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
 
   <hr>
-<!-- <div id="giff"><img src="assets/imgs/back.gif"></div>
-  <hr> -->
 
   <!-- VOLUMES -->
   <div class="social" id="volumes">
@@ -104,6 +101,18 @@
 
   <hr>
 
+  <!-- minigame de cozinhar -->
+  <div id="hungryBug">
+    <div id="cozinhaTit">
+      <h2>Cozinhar com nikaido!</h2>
+    </div>
+    <div id="cozinhaBtn">
+      <button onclick="randomFood()">Cozinhar</button>
+    </div>
+    <div id="comidaEscolhida"></div>
+  </div>
+
+  <hr>
 
   <!-- PERSONAGENS -->
   <div class="personagens">
@@ -151,11 +160,35 @@
     </div>
   </div>
 
-
   <!-- imagem para voltar para cima -->
   <div id="buttonNavBar">
     <a href="#logo"><img src="assets/imgs/ebisu_icon.png"></a>
   </div>
+
+
+
+  <img src="assets/imgs/comida3.jpg" alt="">
+
 </body>
 
 </html>
+
+<script>
+  function randomFood() {
+    let randomNumber = Math.random();
+    let format = (randomNumber * (5 - (0) + 1)).toFixed(0);
+    let comidas = [{
+      lamem: 'assets/imgs/comida1.05z',
+      gyoza: 'assets/imgs/comida2.jpg',
+      bolo: "assets/imgs/comida3.jpg",
+
+    }];
+
+
+
+    if (format == 0) {
+      comidaEscolhida.innerHTML = `<img src="${comidas.lamen}">`;
+    }
+    console.log(format);
+  }
+</script>

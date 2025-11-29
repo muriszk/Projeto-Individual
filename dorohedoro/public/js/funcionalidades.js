@@ -34,7 +34,12 @@ function mudarEsquerda() {
 
 
 // variável de apoio para carrossel de personagens
-var personagens = ['assets/imgs/1caimanSlide.jpeg', 'assets/imgs/2nikaido.jpeg', 'assets/imgs/3haru.jpeg', 'assets/imgs/4dokuga.jpeg', 'assets/imgs/5shin.jpeg', 'assets/imgs/6noi.jpeg']
+var personagens = ['assets/imgs/1caimanSlide.jpeg',
+    'assets/imgs/2nikaido.jpeg',
+    'assets/imgs/3haru.jpeg',
+    'assets/imgs/4dokuga.jpeg',
+    'assets/imgs/5shin.jpeg',
+    'assets/imgs/6noi.jpeg']
 var indexPersonagem = 0;
 
 // função para alterar imagem de carrossel.

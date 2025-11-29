@@ -7,7 +7,7 @@
     <title>Simulador RPG - Minimal</title>
     <link rel="stylesheet" href="css/rpg.css">
     <link rel="stylesheet" href="css/estilo.css">
-      <link rel="icon" href="./assets/imgs/ebisu-icon.png">
+    <link rel="icon" href="./assets/imgs/ebisu-icon.png">
 </head>
 
 <body>
@@ -51,6 +51,7 @@
         <label>
             Escolha o inimigo:
             <select id="selectInimigo">
+                <option value="#">Selecione o inimigo!</option>
                 <option value="0">En – Vida 120</option>
                 <option value="1">Shin – Vida 150</option>
                 <option value="2">Noi – Vida 200</option>
@@ -71,6 +72,7 @@
         <button id="btnAtacar">Atacar</button>
 
         <div id="res" class="resultado"></div>
+        <div id="erro"></div>
     </div>
 
 
@@ -81,75 +83,83 @@
 
 
 <script>
-let inimigos = [
-    { nome: "En", vidaMax: 120, vida: 120, dano: 12 },
-    { nome: "Shin", vidaMax: 150, vida: 150, dano: 15 },
-    { nome: "Noi", vidaMax: 200, vida: 200, dano: 18 },
-    { nome: "Nikaido", vidaMax: 180, vida: 180, dano: 14 }
-];
+    let inimigos = [
+        { nome: "En", vidaMax: 120, vida: 120, dano: 12 },
+        { nome: "Shin", vidaMax: 150, vida: 150, dano: 15 },
+        { nome: "Noi", vidaMax: 200, vida: 200, dano: 18 },
+        { nome: "Nikaido", vidaMax: 180, vida: 180, dano: 14 }
+    ];
 
-let ataques = [
-    { nome: "Soco", dano: 10 },
-    { nome: "Machado", dano: 20 },
-    { nome: "Magia", dano: 35 },
-    { nome: "Cusparada do Caiman", dano: 45 }
-];
+    let ataques = [
+        { nome: "Soco", dano: 10 },
+        { nome: "Machado", dano: 20 },
+        { nome: "Magia", dano: 35 },
+        { nome: "Cusparada do Caiman", dano: 45 }
+    ];
 
-let jogador = {
-    vidaMax: 150,
-    vida: 150
-};
+    let jogador = {
+        vidaMax: 150,
+        vida: 150
+    };
 
-let selectInimigo = document.getElementById("selectInimigo");
-let selectAtaque = document.getElementById("selectAtaque");
-let res = document.getElementById("res");
-let btnAtacar = document.getElementById("btnAtacar");
+    let selectInimigo = document.getElementById("selectInimigo");
+    let selectAtaque = document.getElementById("selectAtaque");
+    let res = document.getElementById("res");
+    let btnAtacar = document.getElementById("btnAtacar");
 
 
-selectInimigo.addEventListener("change", () => {
-    let i = selectInimigo.value;
+    selectInimigo.addEventListener("change", () => {
 
-    inimigos[i].vida = inimigos[i].vidaMax;
-    jogador.vida = jogador.vidaMax;
 
-    res.innerHTML = `<b>Novo inimigo selecionado:</b> ${inimigos[i].nome} (Vida: ${inimigos[i].vida})`;
-});
+        let i = selectInimigo.value;
 
-btnAtacar.addEventListener("click", () => {
-    let i = selectInimigo.value;
-    let inimigo = inimigos[i];
-    let ataque = ataques[selectAtaque.value];
+        inimigos[i].vida = inimigos[i].vidaMax;
+        jogador.vida = jogador.vidaMax;
 
-    if (inimigo.vida <= 0 || jogador.vida <= 0) {
-        res.innerHTML += "<br><br>⚠ Troque o inimigo para reiniciar.";
-        return;
-    }
+        res.innerHTML = `<b>Novo inimigo selecionado:</b> ${inimigos[i].nome} (Vida: ${inimigos[i].vida})`;
+    });
 
-    inimigo.vida -= ataque.dano;
-    if (inimigo.vida < 0) inimigo.vida = 0;
+    btnAtacar.addEventListener("click", () => {
+        let i = selectInimigo.value;
+        let inimigo = inimigos[i];
+        let ataque = ataques[selectAtaque.value];
 
-    res.innerHTML += `
+            // validar se o usuário escolher de fato um personagem.
+        if (selectInimigo.value === "#") {
+            erro.innerHTML = `Escolha um inimigo antes de continuar!`;
+            return; // PARA a função aqui
+        }
+
+        if (inimigo.vida <= 0 || jogador.vida <= 0) {
+            res.innerHTML += "<br><br>⚠ Troque o inimigo para reiniciar.";
+            return;
+        }
+
+        inimigo.vida -= ataque.dano;
+        if (inimigo.vida < 0) inimigo.vida = 0;
+
+        res.innerHTML += `
         <br><br>Você usou <b>${ataque.nome}</b> e causou <b>${ataque.dano}</b> de dano!
         <br>Vida do ${inimigo.nome}: <b>${inimigo.vida}/${inimigo.vidaMax}</b>
     `;
 
-    if (inimigo.vida === 0) {
-        res.innerHTML += `<br><br>Você derrotou ${inimigo.nome}!`;
-        return;
-    }
+        if (inimigo.vida === 0) {
+            res.innerHTML += `<br><br>Você derrotou ${inimigo.nome}!`;
+            return;
+        }
 
-    jogador.vida -= inimigo.dano;
-    if (jogador.vida < 0) jogador.vida = 0;
+        jogador.vida -= inimigo.dano;
+        if (jogador.vida < 0) jogador.vida = 0;
 
-    res.innerHTML += `
+        res.innerHTML += `
         <br> ${inimigo.nome} atacou e causou <b>${inimigo.dano}</b> de dano!
         <br>Sua vida: <b>${jogador.vida}/${jogador.vidaMax}</b>
     `;
 
-    if (jogador.vida === 0) {
-        res.innerHTML += `<br><br>💀 Você foi derrotado...`;
-    }
-});
+        if (jogador.vida === 0) {
+            res.innerHTML += `<br><br>💀 Você foi derrotado...`;
+        }
+    }); z
 
 
 </script>
