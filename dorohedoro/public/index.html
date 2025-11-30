@@ -50,16 +50,26 @@
   </div>
 
   <hr>
+  <div id="hungryBug">
+    <div class="bg-blur"></div>
 
-  <div class="banner" id="banner">
-
-    <div class="banner-bg"></div>
-
-    <!-- <div class="mainImg">
-      <img src="assets/imgs/logoMetal.png">
-    </div> -->
+    <div class="mainTxt">
+      <p><b>O QUE É DOROHEDORO?</b><br><br> Dorohedoro é uma obra japonesa que mistura caos, humor e violência de um
+        jeito único. A busca de Caiman por
+        sua identidade mostra um mundo cheio de magia, mutações e personagens excêntricos, sempre com reviravoltas
+        criativas e imprevisíveis. Dorohedoro conquista pela maneira que independente do caos, no final tudo está
+        conectado!</p>
+    </div>
   </div>
 
+
+  <!-- <div class="banner-bg"></div> -->
+
+  <!-- <div class="mainImg">
+      <img src="assets/imgs/logoMetal.png">
+    </div> -->
+
+  <!-- o que é dorohedoro -->
 
 
   <hr>
@@ -92,17 +102,6 @@
   </div>
 
 
-  <!-- minigame de cozinhar -->
-  <div id="hungryBug">
-    <div class="bg-blur"></div>
-
-    <div class="mainTxt">
-      <p><b>O QUE É DOROHEDORO?</b><br><br> Dorohedoro é uma obra japonesa que mistura caos, humor e violência de um jeito único. A busca de Caiman por
-        sua identidade mostra um mundo cheio de magia, mutações e personagens excêntricos, sempre com reviravoltas
-        criativas e imprevisíveis. Dorohedoro conquista pela maneira que independente do caos, no final tudo está
-        conectado!</p>
-    </div>
-  </div>
 
 
 
@@ -118,6 +117,14 @@
     </div>
     <div id="comidaEscolhida"></div>
   </div> -->
+
+  <hr>
+
+  <div id="back">
+    <img src="assets/imgs/back.gif">
+  </div>
+
+  <hr>
 
   <!-- PERSONAGENS -->
   <div class="personagens">
@@ -176,52 +183,52 @@
 </html>
 
 <script>
-  let point = 0;
-  function randomFood() {
-    let randomNumber = Math.random();
-    let format = (randomNumber * (5 - 1 + 1)).toFixed(0);
+//   let point = 0;
+//   function randomFood() {
+//     let randomNumber = Math.random();
+//     let format = (randomNumber * (5 - 1 + 1)).toFixed(0);
 
-    console.log(format);
-
-
-    let comidas = {
-      lamem: 'assets/imgs/comida1.05z',
-      gyoza: 'assets/imgs/comida2.jpg',
-      bolo: "assets/imgs/comida3.jpg",
-      pao: "assets/imgs/comida4.jpg",
-      ovos: "assets/imgs/comida5.jpg"
-    };
+//     console.log(format);
 
 
-
-    if (format == 1) {
-      comidaEscolhida.innerHTML = `<img src="${comidas.lamem}" width="200px">`;
-      gyoza.innerHTML = '';
-      points = 100;
-      console.log('lamem');
-    } else if (format == 2) {
-      comidaEscolhida.innerHTML = `<img src="${comidas.gyoza}" width="200px">`;
-      gyoza.innerHTML = `<span id="gyoza">Parabéns, usuário de magia, <br> você conseguiu cozinhar o prato principal!  </>`
-      points = 1000;
-      console.log('gyoza');
-    } else if (format == 3) {
-      comidaEscolhida.innerHTML = `<img src="${comidas.bolo}" width="200px">`;
-      gyoza.innerHTML = '';
-      points = 50;
-      console.log('bolo');
-    } else if (format == 4) {
-      comidaEscolhida.innerHTML = `<img src="${comidas.pao}" width="200px">`;
-      gyoza.innerHTML = '';
-      points = 100;
-      console.log('pao');
-    } else if (format === 5) {
-      comidaEscolhida.innerHTML = `<img src="${comidas.ovos}" width="200px">`;
-      gyoza.innerHTML = '';
-      points = 300;
-      console.log('ovos');
-    }
+//     let comidas = {
+//       lamem: 'assets/imgs/comida1.05z',
+//       gyoza: 'assets/imgs/comida2.jpg',
+//       bolo: "assets/imgs/comida3.jpg",
+//       pao: "assets/imgs/comida4.jpg",
+//       ovos: "assets/imgs/comida5.jpg"
+//     };
 
 
-    console.log(format);
-  }
-</script>
+
+//     if (format == 1) {
+//       comidaEscolhida.innerHTML = `<img src="${comidas.lamem}" width="200px">`;
+//       gyoza.innerHTML = '';
+//       points = 100;
+//       console.log('lamem');
+//     } else if (format == 2) {
+//       comidaEscolhida.innerHTML = `<img src="${comidas.gyoza}" width="200px">`;
+//       gyoza.innerHTML = `<span id="gyoza">Parabéns, usuário de magia, <br> você conseguiu cozinhar o prato principal!  </>`
+//       points = 1000;
+//       console.log('gyoza');
+//     } else if (format == 3) {
+//       comidaEscolhida.innerHTML = `<img src="${comidas.bolo}" width="200px">`;
+//       gyoza.innerHTML = '';
+//       points = 50;
+//       console.log('bolo');
+//     } else if (format == 4) {
+//       comidaEscolhida.innerHTML = `<img src="${comidas.pao}" width="200px">`;
+//       gyoza.innerHTML = '';
+//       points = 100;
+//       console.log('pao');
+//     } else if (format === 5) {
+//       comidaEscolhida.innerHTML = `<img src="${comidas.ovos}" width="200px">`;
+//       gyoza.innerHTML = '';
+//       points = 300;
+//       console.log('ovos');
+//     }
+
+
+//     console.log(format);
+//   }
+// </script>
