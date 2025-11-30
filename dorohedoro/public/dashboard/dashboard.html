@@ -11,7 +11,6 @@
     <script src="./../js/alerta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/dashboards.css">
-    <!-- <link rel="stylesheet" href="../css/estilo.css"> -->
     <link rel="shortcut icon" href="../assets/imgs/ebisu-icon.png" type="image/x-icon">
 </head>
 
@@ -20,7 +19,7 @@
     <div class="header">
         <div class="container">
             <div id="logo">
-                <img src="../assets/imgs/ebisu-icon.png" width="50px">
+                <a href="../index.html"><img src="../assets/imgs/ebisu-icon.png" width="50px"></a>
                 <h1 class="titulo">Dorohedoro</h1>
             </div>
             <ul class="navbar">
@@ -139,40 +138,6 @@
             });
         });
 
-    // MÉDIA DAS AVALIAÇÕES
-    // fetch("/dashboard/medias")
-    //     .then(res => res.json())
-    //     .then(dados => {
-    //         let labels = [];1
-    //         let valores = [];
-
-    //         for (let i = 0; i < dados.length; i++) {
-    //             labels.push(dados[i].nomeVolume);
-    //             valores.push(dados[i].mediaAvaliacao);
-    //         }
-
-    //         new Chart(document.getElementById("graficoMedias"), {
-    //             type: "bar",
-    //             data: {
-    //                 labels: labels,
-    //                 datasets: [{
-    //                     label: "Média das Avaliações",
-    //                     data: valores,
-    //                     backgroundColor: gerarCores(valores.length),
-    //                     borderColor: gerarCores(valores.length)
-    //                     // borderWidth: 2
-    //                 }]
-    //             },
-    //             options: {
-    //                 plugins: { legend: { display: false } },
-    //                 scales: {
-    //                     x: { ticks: { color: "#ccc" } },
-    //                     y: { ticks: { color: "#ccc" } },
-    //                     responsive: true
-    //                 }
-    //             }
-    //         });
-    //     });
 
     //  KPI 1 — VOLUME MAIS AVALIADO 
 
