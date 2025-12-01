@@ -25,6 +25,14 @@ body {
   margin: auto;
 }
 
+.container-cadastro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin:auto;
+}
+
 .mainTxt {
   background-color: #B5B74A;
   padding: 20px;
@@ -332,10 +340,14 @@ hr {
   height: 100%;
 }
 
+#cadastro-top{
+  margin-left: 60%;
+}
+
 .card {
-  width: 50%;
-  background-color: #ff0000;
-  border-radius: 10px;
+  width: 40%;
+  background-color: #632C58;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -563,6 +575,10 @@ input {
   border-radius: 100px;
   top: 77%;
   border: 1px solid white;
+}
+
+#fundo-cadastro{
+  background-image: url(../assets/imgs/background-hole.gif);
 }
 
 #hungryBug {
